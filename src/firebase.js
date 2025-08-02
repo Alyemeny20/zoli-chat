@@ -1,24 +1,19 @@
-// ✅ استيراد مكتبات Firebase
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { getMessaging } from "firebase/messaging";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import 'firebase/compat/storage';
 
-// ✅ إعدادات مشروعك من Firebase Console
 const firebaseConfig = {
-  apiKey: "AIzaSyDrydPCzL-WISMKN5v_ps8Xy4bIHn90XDA",
-  authDomain: "zoli-chat.firebaseapp.com",
-  projectId: "zoli-chat",
-  storageBucket: "zoli-chat.firebasestorage.app",
-  messagingSenderId: "766283585350",
-  appId: "1:766283585350:web:5548302e54f47b9c1ef747",
-  measurementId: "G-THTR48Q3Q3"
+  apiKey: 'YOUR_API_KEY',
+  authDomain: 'YOUR_AUTH_DOMAIN',
+  projectId: 'YOUR_PROJECT_ID',
+  storageBucket: 'YOUR_STORAGE_BUCKET',
+  messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
+  appId: 'YOUR_APP_ID',
 };
 
-// ✅ تهيئة التطبيق
-const app = initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
-// ✅ قاعدة البيانات Firestore
-export const db = getFirestore(app);
-
-// ✅ خدمة الإشعارات Firebase Cloud Messaging
-export const messaging = getMessaging(app);
+export { firebase };
